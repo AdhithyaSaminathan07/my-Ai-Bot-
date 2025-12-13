@@ -1,27 +1,3 @@
-// import { createOpenAI } from '@ai-sdk/openai';
-// import { streamText } from 'ai';
-
-// // 1. Setup the Groq provider
-// const groq = createOpenAI({
-//   baseURL: 'https://api.groq.com/openai/v1',
-//   apiKey: process.env.GROQ_API_KEY,
-// });
-
-// export const maxDuration = 30;
-
-// export async function POST(req: Request) {
-//   const { messages } = await req.json();
-
-//   const result = await streamText({
-//     // UPDATED MODEL NAME HERE:
-//     model: groq('llama-3.3-70b-versatile'), 
-//     messages,
-//   });
-
-//   return result.toAIStreamResponse();
-// }
-
-
 import { createOpenAI } from '@ai-sdk/openai';
 import { google } from '@ai-sdk/google';
 import { embed, streamText } from 'ai';
@@ -59,7 +35,7 @@ export async function POST(req: Request) {
         "knnBeta": {
           "vector": embedding,
           "path": "embedding",
-          "k": 3
+          "k": 10
         }
       }
     },
